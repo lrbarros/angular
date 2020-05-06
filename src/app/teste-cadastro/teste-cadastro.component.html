@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="alert alert-success" *ngIf="adicionado" role="alert">
+        Qual seu nome? R: {{nome}}
+     </div>
+     <div class="form-group" >
+        <label for="id-1">altera nome ao digitar</label>
+        <input id="id-1" type="text" (input)="alterarNome($event)" class="form-control" [value]="nome" />
+        
+        <label for="id-2">altera nome no click</label>
+        <input id="id-2" type="text" class="form-control" #nomeInput />
+        
+        <label for="id-3">Vinculado ao botão Adicionar</label>
+        <input id="id-3" type="text" class="form-control"  #nomeInput2 />
+
+        <label for="id-4">two Way data Binding Manual</label>
+        <input id="id-4" type="text" class="form-control" 
+                            (input)="nome = $event.target.value" [value]="nome"/>
+        
+        <label for="id-5">two Way data Binding Diretiva NGMODEL </label>
+        <input type="text" class="form-control" [(ngModel)]="nome" />                               
+    </div>
+    
+    <div>
+        <button type="submit" class="btn btn-primary" (click)="alterarClick(nomeInput.value)">Clicar</button>
+        <button type="button" class="btn btn-primary" (click)="alterarClick(nomeInput2.value)">Adicionar</button>
+        <button type="button" class="btn btn-secondary" (click)="limparClick()" 
+            [hidden] = "nome ===''">Limpar propert binding</button>
+    </div>   
+
+</div>
