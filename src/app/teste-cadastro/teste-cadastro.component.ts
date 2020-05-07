@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 
 const newLocal = 'app-teste-cadastro';
 @Component({
@@ -8,6 +8,9 @@ const newLocal = 'app-teste-cadastro';
 })
 export class TesteCadastroComponent  {
 
+  @Output() funcionarios  = [];
+
+  id:number = 0;
   nome: string ="" ;
   adicionado:boolean = false;
 
@@ -15,12 +18,24 @@ export class TesteCadastroComponent  {
     this.nome = event.target.value;
   }
 
-  alterarClick(nome:string){
-    this.nome = nome;
+  alterarClick(){
+    
+    this.funcionarios.push ({
+       id: ++this.id,
+       nome: this.nome
+    });
+    this.adicionado=true;
+  }
+
+  alterarClickParametro (nomeParam:string){
+    
+    this.funcionarios.push ({
+       id: ++this.id,
+       nome: nomeParam
+    });
     this.adicionado=true;
   }
   limparClick(){
-    console.log(this.nome.length);
     this.nome = "";
   }
 }

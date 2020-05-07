@@ -10,7 +10,7 @@
         <input id="id-2" type="text" class="form-control" #nomeInput />
         
         <label for="id-3">Vinculado ao botão Adicionar</label>
-        <input id="id-3" type="text" class="form-control"  #nomeInput2 />
+        <input id="id-3" type="text" class="form-control" (focus)="limparClick()"  [(ngModel)]="nome"/>
 
         <label for="id-4">two Way data Binding Manual</label>
         <input id="id-4" type="text" class="form-control" 
@@ -21,10 +21,17 @@
     </div>
     
     <div>
-        <button type="submit" class="btn btn-primary" (click)="alterarClick(nomeInput.value)">Clicar</button>
-        <button type="button" class="btn btn-primary" (click)="alterarClick(nomeInput2.value)">Adicionar</button>
+        <button type="button" class="btn btn-primary" (click)="alterarClickParametro(nomeInput.value)">Clicar</button>
+        <button type="button" class="btn btn-primary" (click)="alterarClick()" *ngIf="adicionado">Adicionar</button>
         <button type="button" class="btn btn-secondary" (click)="limparClick()" 
             [hidden] = "nome ===''">Limpar propert binding</button>
     </div>   
 
+    <br/>
+    <div class="row">
+        <div class="col-2" *ngFor = "let f of funcionarios" >
+           <app-funcionario-card [obj]="f"></app-funcionario-card>
+        </div>
+    </div>
 </div>
+
