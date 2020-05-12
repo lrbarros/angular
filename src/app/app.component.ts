@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'gastao-angular';
+
+  funcionarios = [];
+
+  aoAdicionar(funcionario){
+    this.funcionarios.push(funcionario);
+  }
 }

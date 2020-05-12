@@ -1,1 +1,10 @@
-<app-teste-cadastro></app-teste-cadastro>
+<div class="container">
+   
+    <app-funcionario-form (criado)="aoAdicionar($event)" ></app-funcionario-form>
+
+    <div class="row">
+        <div class="col-2" *ngFor = "let f of funcionarios" >
+           <app-funcionario-card [obj]="f"></app-funcionario-card>
+        </div>
+    </div>
+</div>

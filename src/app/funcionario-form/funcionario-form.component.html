@@ -1,0 +1,15 @@
+<div class="alert alert-success" *ngIf="adicionado" role="alert">
+    Qual seu nome? R: {{nome}}
+ </div>
+
+ <div class="form-group" >
+
+    <label for="id-5">two Way data Binding Diretiva NGMODEL </label>
+    <input type="text" class="form-control" [(ngModel)]="nome" (focus)="limparClick()" />                               
+</div>
+
+<div>
+    <button type="button" class="btn btn-primary" (click)="alterarClick()">Adicionar</button>
+    <button type="button" class="btn btn-secondary" (click)="limparClick()">
+        Limpar propert binding</button>
+</div>  
